@@ -11,6 +11,7 @@ from forms import CreatePostForm, CreateLoginForm, CreateRegisterForm, CreateCom
 from flask_gravatar import Gravatar
 from sqlalchemy import create_engine, ForeignKey, Integer, Column, Text, Float, String, CHAR, Boolean
 from functools import wraps
+from sqlalchemy.ext.declarative import declarative_base
 
 login_manager = LoginManager()
 
@@ -24,9 +25,9 @@ login_manager.init_app(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/Users/hp/Desktop/My_projects/Blog/blog.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-class Base(DeclarativeBase):
-    pass
-
+# class Base(DeclarativeBase):
+#     pass
+Base = declarative_base()
 
 ##CONFIGURE TABLES
 class User_data(UserMixin, Base):
