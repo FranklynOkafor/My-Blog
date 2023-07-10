@@ -1,6 +1,6 @@
 FROM python
 
-EXPOSE 5000
+EXPOSE 8080
 
 ADD requirements.txt .
 
@@ -10,4 +10,4 @@ WORKDIR /app
 
 ADD . /app
 
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "blog_app.webapp:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "blog_app.webapp:app"]
